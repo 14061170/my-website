@@ -1,7 +1,17 @@
-import { createSharedPathnamesNavigation } from 'next-intl/navigation';
+import { createNavigation } from 'next-intl/navigation';
+import { defineRouting } from 'next-intl/routing';
 
-export const locales = ['zh-CN', 'zh-TW'] as const;
-export const localePrefix = 'always'; // 强制 URL 始终带语言前缀 (推荐)
+export const routing = defineRouting({
+    // 支持的语言列表
+    locales: ['zh-CN', 'zh-TW'],
 
-export const { Link, redirect, usePathname, useRouter } =
-    createSharedPathnamesNavigation({ locales, localePrefix });
+    // 默认语言
+    defaultLocale: 'zh-CN',
+
+    // URL 前缀策略 (always 表示 URL 始终包含语言，如 /zh-cn/about)
+    localePrefix: 'always'
+});
+
+// 创建并导出导航组件
+export const { Link, redirect, usePathname, useRouter, getPathname } =
+    createNavigation(routing);
