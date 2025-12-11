@@ -1,0 +1,11 @@
+{
+  "Navbar": {
+    "home": "首頁",
+    "product": "產品",
+    "switchLabel": "简体中文"
+  },
+  "Hero": {
+    "title": "構建卓越的數位體驗",
+    "desc": "基於 Next.js 的高性能多語言官網"
+  }
+}
